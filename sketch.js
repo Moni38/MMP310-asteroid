@@ -4,17 +4,29 @@
 */
 
 var spaceship = { 
-	x: 0, 
-	y: 100,
-	size: 50,
+	x: 350, 
+	y: 200,
+	w:20,
+	h:85,
+	size: 70,
 	speed: 10,
 	display: function () {
+		
 		fill('orange');
 		triangle(
 			this.x, this.y, 
-			this.x - this.size, this.y + this.size * 2, 
-			this.x + this.size, this.y + this.size * 2
-		);
+			this.x - this.size/2, this.y + this.size * 2, 
+			this.x + this.size/2, this.y + this.size * 2);
+		
+		fill('orange');
+		ellipse(this.x +50, this.y + 35,this.w, this.h); 
+		
+		fill('orange');
+		ellipse(this.x -50, this.y +35,this.w, this.h); 
+		
+		fill('orange');
+        ellipse(this.x, this.y + this.size *2, this.size/2);
+		
 	},
 	update: function () {
 		if (keyIsDown(RIGHT_ARROW)) {
@@ -44,7 +56,7 @@ function setup() {
 
 function draw() {
 	background(51);
-    if (random(100)>99){
+    if (random(100)>99){	
     asteroids.push(new Asteroid());
     
     }
